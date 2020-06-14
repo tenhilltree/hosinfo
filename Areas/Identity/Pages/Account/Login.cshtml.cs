@@ -43,14 +43,16 @@ namespace RazorSecond.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            [EmailAddress]
+            // [EmailAddress]
+            [Display(Name = "用户名")]
             public string Email { get; set; }
 
             [Required]
             [DataType(DataType.Password)]
+            [Display(Name = "密码")]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "记住账号")]
             public bool RememberMe { get; set; }
         }
 
