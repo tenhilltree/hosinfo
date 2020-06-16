@@ -20,17 +20,23 @@
             </div>
             <div class="form-group">
                 <label asp-for="Stuff.Gender" class="control-label"></label>
-                <select asp-for="Stuff.Gender" class="form-control"></select>
+                <select asp-for="Stuff.Gender" class="form-control" asp-items="Html.GetEnumSelectList<Gender>()">
+                    <option selected="selected" value=""></option>
+                </select>                    
                 <span asp-validation-for="Stuff.Gender" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Stuff.Title" class="control-label"></label>
-                <select asp-for="Stuff.Title" class="form-control"></select>
+                <select asp-for="Stuff.Title" class="form-control"  asp-items="Html.GetEnumSelectList<Title>()">
+                    <option selected="selected" value=""></option>
+                </select>
                 <span asp-validation-for="Stuff.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Stuff.Department" class="control-label"></label>
-                <select asp-for="Stuff.Department" class="form-control"></select>
+                <select asp-for="Stuff.Department" class="form-control"  asp-items="Html.GetEnumSelectList<Department>()">
+                    <option selected="selected" value=""></option>
+                </select>
                 <span asp-validation-for="Stuff.Department" class="text-danger"></span>
             </div>
             <div class="form-group">
