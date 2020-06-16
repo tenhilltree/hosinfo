@@ -32,6 +32,9 @@ namespace RazorSecond
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<HosDbContext>(options =>
+            options.UseSqlite(
+                Configuration.GetConnectionString("HosConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             IMvcBuilder builder = services.AddRazorPages();
