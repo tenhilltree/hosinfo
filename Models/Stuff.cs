@@ -25,20 +25,27 @@ namespace RazorSecond.Models
 
     public enum Gender
     {
-        男,
-        女,
+        [Display(Name = "女")]
+        female,
+        [Display(Name = "男")]
+        male,
     }
 
     public enum Department
     {
+        [Display(Name = "眼科")]
         眼科,
+        [Display(Name = "口腔科")]
         口腔科,
+        [Display(Name = "骨科")]
         骨科
     }
 
     public enum Title
     {
+        [Display(Name = "主任医师")]
         主任医师,
+        [Display(Name = "副主任医师")]
         副主任医师,
 
     }
