@@ -8,12 +8,12 @@ namespace RazorSecond.Models
         public int ID { get; set; }
 
         [MaxLength(10)]
-        [Display(Name = "姓名")]
-        [Required(ErrorMessage = "123")]
+        [Display(Name = "姓名*")]
+        [Required(ErrorMessage = "请输入姓名")]
         public string Name { get; set; }
 
-        [Display(Name = "性别")]
-        [Required]
+        [Display(Name = "性别*")]
+        [Required(ErrorMessage = "请选择性别")]
         public Gender Gender { get; set; }
 
         [Display(Name = "职务")]

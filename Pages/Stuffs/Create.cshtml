@@ -14,28 +14,28 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Stuff.Name" class="control-label label-required"></label>
+                <label asp-for="Stuff.Name" class="control-label"></label>
                 <input asp-for="Stuff.Name" class="form-control" />
                 <span asp-validation-for="Stuff.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Stuff.Gender" class="control-label label-required"></label>
+                <label asp-for="Stuff.Gender" class="control-label"></label>
                 <select asp-for="Stuff.Gender" class="custom-select" asp-items="Html.GetEnumSelectList<Gender>()">
-                    <option>==请选择==</option>                   
+                    <option value="">==请选择==</option>                   
                 </select>                    
                 <span asp-validation-for="Stuff.Gender" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Stuff.Title" class="control-label"></label>
                 <select asp-for="Stuff.Title" class="custom-select"  asp-items="Html.GetEnumSelectList<Title>()">  
-                    <option>==请选择==</option>                  
+                    <option value="">==请选择==</option>                  
                 </select>
                 <span asp-validation-for="Stuff.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Stuff.Department" class="control-label"></label>
                 <select asp-for="Stuff.Department" class="custom-select"  asp-items="Html.GetEnumSelectList<Department>()">
-                    <option>==请选择==</option>                   
+                    <option value="">==请选择==</option>                   
                 </select>
                 <span asp-validation-for="Stuff.Department" class="text-danger"></span>
             </div>
