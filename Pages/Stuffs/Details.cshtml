@@ -1,14 +1,14 @@
-@page
+@page "{id:int}"
 @model RazorSecond.Pages.Stuffs.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "详情";
 }
 
-<h1>Details</h1>
+<h1>@ViewData["Title"]</h1>
 
 <div>
-    <h4>Stuff</h4>
+    @* <h4>Stuff</h4> *@
     <hr />
     <dl class="row">
         <dt class="col-sm-2">

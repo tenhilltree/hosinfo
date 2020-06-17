@@ -1,13 +1,13 @@
-@page
+@page "{id:int}"
 @model RazorSecond.Pages.Stuffs.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "编辑";
 }
 
-<h1>Edit</h1>
+<h1>编辑</h1>
 
-<h4>Stuff</h4>
+@* <h4>Stuff</h4> *@
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -21,17 +21,23 @@
             </div>
             <div class="form-group">
                 <label asp-for="Stuff.Gender" class="control-label"></label>
-                <select asp-for="Stuff.Gender" class="form-control"></select>
+                <select asp-for="Stuff.Gender" class="custom-select" asp-items="Html.GetEnumSelectList<Gender>()">
+                    <option value="">==请选择==</option>                   
+                </select>   
                 <span asp-validation-for="Stuff.Gender" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Stuff.Title" class="control-label"></label>
-                <select asp-for="Stuff.Title" class="form-control"></select>
+                <select asp-for="Stuff.Title" class="custom-select"  asp-items="Html.GetEnumSelectList<Title>()">  
+                    <option value="">==请选择==</option>                  
+                </select>
                 <span asp-validation-for="Stuff.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Stuff.Department" class="control-label"></label>
-                <select asp-for="Stuff.Department" class="form-control"></select>
+                <select asp-for="Stuff.Department" class="custom-select"  asp-items="Html.GetEnumSelectList<Department>()">
+                    <option value="">==请选择==</option>                   
+                </select>
                 <span asp-validation-for="Stuff.Department" class="text-danger"></span>
             </div>
             <div class="form-group">
