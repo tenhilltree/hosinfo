@@ -17,10 +17,10 @@ namespace RazorSecond.Models
         public Gender Gender { get; set; }
 
         [Display(Name = "职务")]
-        public Title Title { get; set; }
+        public Title? Title { get; set; }
 
         [Display(Name = "所在科室")]
-        public Department Department { get; set; }
+        public Department? Department { get; set; }
     }
 
     public enum Gender
