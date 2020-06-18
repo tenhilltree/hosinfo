@@ -25,11 +25,8 @@ namespace RazorSecond.Models
 
     public enum Gender
     {
-
-        [Display(Name = "男")]
-        male = 1,
-        [Display(Name = "女")]
-        female,
+        男 = 1,
+        女,
     }
 
     public enum Department
