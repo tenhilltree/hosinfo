@@ -34,20 +34,16 @@ namespace RazorSecond.Models
 
     public enum Department
     {
-        [Display(Name = "眼科")]
         眼科 = 1,
-        [Display(Name = "口腔科")]
-        口腔科,
-        [Display(Name = "骨科")]
-        骨科
+        口腔科, 骨科, 心脏外科, 泌尿外科, 普通外科, 烧伤外科, 胸外科, 肝胆外科, 血管外科, 胸腺外科, 器官移植科, 儿科, 疼痛科, 麻醉科, 重症医学科, 皮肤科, 妇产科, 针灸科
     }
 
     public enum Title
     {
-        [Display(Name = "主任医师")]
         主任医师 = 1,
-        [Display(Name = "副主任医师")]
         副主任医师,
-
+        主治医师,
+        住院医师,
+        医师
     }
 }
