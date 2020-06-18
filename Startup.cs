@@ -37,7 +37,13 @@ namespace RazorSecond
                 Configuration.GetConnectionString("HosConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            IMvcBuilder builder = services.AddRazorPages();
+            IMvcBuilder builder = services.AddRazorPages().AddRazorPagesOptions(options =>
+                {
+                    // options.Conventions.AuthorizePage("/Contact");
+                    options.Conventions.AuthorizeFolder("/Pages/Stuffs");
+                    // options.Conventions.AllowAnonymousToPage("/Private/PublicPage");
+                    // options.Conventions.AllowAnonymousToFolder("/Private/PublicPages");
+                });
 #if DEBUG
             if (Env.IsDevelopment())
             {
