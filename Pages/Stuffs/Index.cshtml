@@ -1,4 +1,4 @@
-@page
+@page "{searchString?}"
 @model RazorSecond.Pages.Stuffs.IndexModel
 
 @{
@@ -10,6 +10,24 @@
 <p>
     <a asp-page="Create" class="btn btn-primary">新增</a>
 </p>
+<form>
+    <p>
+        姓名: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="搜索" />
+        性别:
+        <select onchange="this.form.submit()" asp-for="Gender" asp-items="Model.Genders">
+            <option value="">全部</option>
+        </select>
+        职务:
+        <select onchange="this.form.submit()" asp-for="Title" asp-items="Model.Titles">
+            <option value="">全部</option>
+        </select>
+        所在科室:
+        <select onchange="this.form.submit()" asp-for="Department" asp-items="Model.Departments">
+            <option value="">全部</option>
+        </select>
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
@@ -29,26 +47,27 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Stuff) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Department)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">修改</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">详情</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">删除</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Stuff)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">修改</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">详情</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">删除</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
