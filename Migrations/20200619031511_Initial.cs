@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RazorSecond.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,11 +12,12 @@ namespace RazorSecond.Migrations
                 columns: table => new
                 {
                     ID = table.Column<Guid>(nullable: false),
-                    Code = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
+                    Code = table.Column<string>(maxLength: 10, nullable: false),
+                    Name = table.Column<string>(maxLength: 20, nullable: false),
+                    Type = table.Column<int>(nullable: false),
                     ReleaseDate = table.Column<DateTime>(nullable: false),
                     LeftMonths = table.Column<int>(nullable: false),
-                    Factory = table.Column<string>(nullable: true)
+                    Factory = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {

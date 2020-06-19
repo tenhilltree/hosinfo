@@ -32,7 +32,9 @@ namespace RazorSecond.Pages.Medicines
                             select m;
             if (!string.IsNullOrEmpty(SearchString))
             {
-                medicines = medicines.Where(s => s.Name.Contains(SearchString));
+                medicines = medicines.Where(s => s.Name.Contains(SearchString) ||
+                s.Code.Contains(SearchString) ||
+                s.Factory.Contains(SearchString));
             }
             if (MedicineType != null)
             {

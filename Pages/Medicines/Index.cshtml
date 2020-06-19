@@ -12,10 +12,10 @@
 </p>
 <form>
     <p>
-        名称/编码: <input type="text" asp-for="SearchString" />
+        编码/名称/厂家: <input type="text" asp-for="SearchString" />
         <input type="submit" value="搜索" />
         类别:
-        <select onchange="this.form.submit()" asp-for="Type" asp-items="Model.Type">
+        <select onchange="this.form.submit()" asp-for="MedicineType" asp-items="Html.GetEnumSelectList<MedicineType>()">
             <option value="">全部</option>
         </select>
     </p>

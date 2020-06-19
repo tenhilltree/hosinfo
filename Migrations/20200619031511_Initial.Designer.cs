@@ -9,8 +9,8 @@ using RazorSecond.Data;
 namespace RazorSecond.Migrations
 {
     [DbContext(typeof(HosDbContext))]
-    [Migration("20200619022854_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20200619031511_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,19 +25,28 @@ namespace RazorSecond.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Code")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(10);
 
                     b.Property<string>("Factory")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(50);
 
                     b.Property<int>("LeftMonths")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(20);
 
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("TEXT");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("ID");
 
