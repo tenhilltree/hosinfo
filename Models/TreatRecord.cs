@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace RazorSecond.Models
 {
@@ -24,11 +25,11 @@ namespace RazorSecond.Models
 
         [Display(Name = "主治医师")]
         [Required(ErrorMessage = "请选择主治医师")]
-        public Stuff Doctor{get;set;}
+        public int Doctor{get;set;}
 
         [Display(Name = "用药名称")]
         [Required(ErrorMessage = "请选择药品")]
-        public Medicine Medicine{get;set;}
+        public string Medicine{get;set;}
 
         [Display(Name = "接诊日期")]
         [DataType(DataType.Date)]
