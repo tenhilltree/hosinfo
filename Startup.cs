@@ -40,7 +40,7 @@ namespace RazorSecond
             IMvcBuilder builder = services.AddRazorPages().AddRazorPagesOptions(options =>
                 {
                     // options.Conventions.AuthorizePage("/Contact");
-                    options.Conventions.AuthorizeFolder("/Pages/Stuffs");
+                    options.Conventions.AuthorizeFolder("/");
                     // options.Conventions.AllowAnonymousToPage("/Private/PublicPage");
                     // options.Conventions.AllowAnonymousToFolder("/Private/PublicPages");
                 });
