@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - 第一医院信息系统</title>
+    <title>@ViewData["Title"] - 医院信息系统</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -13,7 +13,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">第一医院信息系统</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">医院信息系统</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -26,11 +26,11 @@
                             @* <li class="nav-item">
             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
         </li> *@
-                            <li class="nav-item @(ViewData["Title"].ToString()=="科室信息"?"active":"")">
-                                <a class="nav-link" asp-area="" asp-page="/Department">科室信息</a>
-                            </li>
                             <li class="nav-item @(ViewData["Title"].ToString()=="员工信息"?"active":"")">
                                 <a class="nav-link" asp-area="" asp-page="/Stuffs/Index">员工信息</a>
+                            </li>
+                            <li class="nav-item @(ViewData["Title"].ToString()=="药品信息"?"active":"")">
+                                <a class="nav-link" asp-area="" asp-page="/Medicines/Index">药品信息</a>
                             </li>
                             <li class="nav-item @(ViewData["Title"].ToString()=="报表查看"?"active":"")">
                                 <a class="nav-link" asp-area="" asp-page="/Privacy">报表查看</a>

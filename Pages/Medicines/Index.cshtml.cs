@@ -19,11 +19,26 @@ namespace RazorSecond.Pages.Medicines
             _context = context;
         }
 
-        public IList<Medicine> Medicine { get;set; }
+        public IList<Medicine> Medicine { get; set; }
 
+        [BindProperty(SupportsGet = true)]
+        public string SearchString { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public MedicineType? MedicineType { get; set; }
         public async Task OnGetAsync()
         {
-            Medicine = await _context.Medicine.ToListAsync();
+            var medicines = from m in _context.Medicine
+                            select m;
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                medicines = medicines.Where(s => s.Name.Contains(SearchString));
+            }
+            if (MedicineType != null)
+            {
+                medicines = medicines.Where(s => s.Type == MedicineType);
+            }
+            Medicine = await medicines.ToListAsync();
         }
     }
 }

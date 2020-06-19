@@ -2,12 +2,12 @@
 @model RazorSecond.Pages.Medicines.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "药品信息";
 }
 
-<h1>Edit</h1>
+<h1>编辑</h1>
 
-<h4>Medicine</h4>
+@* <h4>Stuff</h4> *@
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -25,6 +25,13 @@
                 <span asp-validation-for="Medicine.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Medicine.Type" class="control-label"></label>
+                <select asp-for="Medicine.Type" class="custom-select" asp-items="Html.GetEnumSelectList<MedicineType>()">
+                    <option value="">==请选择==</option>                   
+                </select>                    
+                <span asp-validation-for="Medicine.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Medicine.ReleaseDate" class="control-label"></label>
                 <input asp-for="Medicine.ReleaseDate" class="form-control" />
                 <span asp-validation-for="Medicine.ReleaseDate" class="text-danger"></span>
@@ -40,14 +47,14 @@
                 <span asp-validation-for="Medicine.Factory" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="保存" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">返回列表</a>
 </div>
 
 @section Scripts {
