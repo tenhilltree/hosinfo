@@ -25,17 +25,21 @@ namespace RazorSecond.Pages.TreatRecords
 
         public async Task<IActionResult> OnGet()
         {
-            IQueryable<object> doctorQuery = from m in _hosContext.Stuff
-                                             orderby m.Department
-                                             select new { m.ID, m.Name, m.Department };
-            Doctors = new SelectList(await doctorQuery.ToArrayAsync());
+            IQueryable<SelectListItem> doctorQuery = from m in _hosContext.Stuff
+                                                     orderby m.Department
+                                                     select new SelectListItem { Value = m.ID.ToString(), Text = $"{m.Name}({m.Department})" };
+            IQueryable<SelectListItem> medicineQuery = from m in _hosContext.Medicine
+                                                     orderby m.Name
+                                                     select new SelectListItem { Value = m.ID.ToString(), Text = $"{m.Name}({m.Code})" };
+            Doctors = await doctorQuery.ToArrayAsync();
             return Page();
         }
 
         [BindProperty]
         public TreatRecord TreatRecord { get; set; }
 
-        public SelectList Doctors { get; set; }
+        public SelectListItem[] Doctors { get; set; }
+        public SelectListItem[] Medicines { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
