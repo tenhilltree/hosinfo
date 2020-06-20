@@ -30,7 +30,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="TreatRecord.Doctor" class="control-label"></label>
-                <input asp-for="TreatRecord.Doctor" class="form-control" />
+                <select asp-for="TreatRecord.Doctor" asp-items="Model.Doctors">
+                    <option value="">全部</option>
+                </select>
                 <span asp-validation-for="TreatRecord.Doctor" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace RazorSecond.Models
@@ -23,17 +24,25 @@ namespace RazorSecond.Models
         [Required(ErrorMessage = "请输入患者年龄")]
         public int Age { get; set; }
 
-        [Display(Name = "主治医师")]
-        [Required(ErrorMessage = "请选择主治医师")]
-        public int Doctor{get;set;}
+        [Required]
+        public int DoctorId { get; set; }
 
-        [Display(Name = "用药名称")]
-        [Required(ErrorMessage = "请选择药品")]
-        public string Medicine{get;set;}
+        [Required]
+        public string MedicineId { get; set; }
 
         [Display(Name = "接诊日期")]
         [DataType(DataType.Date)]
         [Required(ErrorMessage = "请选择接诊日期")]
         public DateTime ReleaseDate { get; set; }
+
+        [Display(Name = "主治医师")]
+        [Required(ErrorMessage = "请选择主治医师")]
+        [NotMapped]
+        public Stuff Doctor { get; set; }
+
+        [Display(Name = "用药名称")]
+        [Required(ErrorMessage = "请选择药品")]
+        [NotMapped]
+        public Medicine Medicine { get; set; }
     }
 }
