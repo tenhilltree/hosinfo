@@ -32,6 +32,7 @@ namespace RazorSecond.Pages.TreatRecords
                                                      orderby m.Name
                                                      select new SelectListItem { Value = m.ID.ToString(), Text = $"{m.Name}({m.Code})" };
             Doctors = await doctorQuery.ToArrayAsync();
+            Medicines = await medicineQuery.ToArrayAsync();
             return Page();
         }
 

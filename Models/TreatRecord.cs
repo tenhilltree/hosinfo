@@ -28,8 +28,14 @@ namespace RazorSecond.Models
         [Display(Name = "主治医师")]
         public int DoctorId { get; set; }
 
+        [NotMapped]
+        public string DoctorName { get; set; }
+
         [Display(Name = "用药名称")]
         public string MedicineId { get; set; }
+
+        [NotMapped]
+        public string MedicineName { get; set; }
 
         [Display(Name = "接诊日期")]
         [DataType(DataType.Date)]

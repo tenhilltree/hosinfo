@@ -2,12 +2,12 @@
 @model RazorSecond.Pages.TreatRecords.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "接诊记录";
 }
 
-<h1>Create</h1>
+<h1>创建</h1>
 
-<h4>TreatRecord</h4>
+@* <h4>Stuff</h4> *@
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -48,14 +48,14 @@
                 <span asp-validation-for="TreatRecord.ReleaseDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="创建" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index">返回列表</a>
 </div>
 
 @section Scripts {
