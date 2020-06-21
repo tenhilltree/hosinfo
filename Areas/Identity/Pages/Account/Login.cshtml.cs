@@ -42,12 +42,12 @@ namespace RazorSecond.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage="请输入用户名")]
             // [EmailAddress]
             [Display(Name = "用户名")]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage="请输入密码")]
             [DataType(DataType.Password)]
             [Display(Name = "密码")]
             public string Password { get; set; }
@@ -98,7 +98,7 @@ namespace RazorSecond.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "用户名或密码错误");
                     return Page();
                 }
             }
