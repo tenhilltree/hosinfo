@@ -45,7 +45,7 @@ namespace RazorSecond.Pages.TreatRecords
             //                  join m in _hosContext.Medicine  on tr.MedicineId equals m.ID.ToString()
             //                  join s in _hosContext.Stuff on tr.DoctorId equals s.ID
             //                  select Fill(tr, s, m);
-            TreatRecord = result.ToList();
+            TreatRecord = result.OrderBy(item => item.ReleaseDate).ToList();
         }
     }
 }

@@ -67,7 +67,7 @@ namespace RazorSecond.Pages.Stuffs
             Titles = new SelectList(await titleQuery.Distinct().ToArrayAsync());
             Departments = new SelectList(await departmentQuery.Distinct().ToArrayAsync());
             ViewData["Genders"] = Genders;
-            Stuff = await stuffs.ToListAsync();
+            Stuff = await ((IQueryable<Stuff>)stuffs.OrderBy(s => s.Department)).ToListAsync();
         }
     }
 }

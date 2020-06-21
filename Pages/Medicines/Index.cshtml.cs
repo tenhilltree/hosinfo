@@ -28,8 +28,9 @@ namespace RazorSecond.Pages.Medicines
         public MedicineType? MedicineType { get; set; }
         public async Task OnGetAsync()
         {
-            var medicines = from m in _context.Medicine
-                            select m;
+            IQueryable<Medicine> medicines = from m in _context.Medicine
+                                             orderby m.Code
+                                             select m;
             if (!string.IsNullOrEmpty(SearchString))
             {
                 medicines = medicines.Where(s => s.Name.Contains(SearchString) ||

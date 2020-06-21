@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace RazorSecond.Models
 {
@@ -13,6 +14,12 @@ namespace RazorSecond.Models
         [RegularExpression(@"^\d{3}$", ErrorMessage = "患者编码必须为3位数字")]
         [Display(Name = "患者编码")]
         [Required(ErrorMessage = "请输入患者编码")]
+        [PageRemote(
+            ErrorMessage = "已存在相同的编码",
+            // AdditionalFields = "__RequestVerificationToken",
+            HttpMethod = "get",
+            PageHandler = "CheckCode"
+        )]
         public string Code { get; set; }
 
         [MaxLength(10)]

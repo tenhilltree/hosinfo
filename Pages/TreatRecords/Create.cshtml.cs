@@ -29,8 +29,8 @@ namespace RazorSecond.Pages.TreatRecords
                                                      orderby m.Department
                                                      select new SelectListItem { Value = m.ID.ToString(), Text = $"{m.Name}({m.Department})" };
             IQueryable<SelectListItem> medicineQuery = from m in _hosContext.Medicine
-                                                     orderby m.Name
-                                                     select new SelectListItem { Value = m.ID.ToString(), Text = $"{m.Name}({m.Code})" };
+                                                       orderby m.Code
+                                                       select new SelectListItem { Value = m.ID.ToString(), Text = $"{m.Name}({m.Code})" };
             Doctors = await doctorQuery.ToArrayAsync();
             Medicines = await medicineQuery.ToArrayAsync();
             return Page();
@@ -55,6 +55,16 @@ namespace RazorSecond.Pages.TreatRecords
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
+        }
+
+        public async Task<JsonResult> OnGetCheckCode()
+        {
+
+            var codes = from m in _context.TreatRecord
+                        select m.Code;
+            return new JsonResult(!await codes.AnyAsync(s =>
+                s == Request.Query["TreatRecord.Code"].FirstOrDefault()
+            ));
         }
     }
 }
