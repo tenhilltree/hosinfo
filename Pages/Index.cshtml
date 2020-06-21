@@ -4,6 +4,69 @@
     ViewData["Title"] = "首页";
 }
 
-<div class="text-center">
+<div class="text-left" style="margin-bottom: 50px;">
+    <h4>数据统计</h4>
     @* <img src="~/images/1.jpg" style="width:100%;" /> *@
 </div>
+<div class="row">
+    <div class="col col-sm-12 col-md-6">
+        <div id="left" style="width:400px;height:400px;"></div>
+    </div>
+    <div class="col col-sm-12 col-md-6">
+        <div id="right" style="width:400px;height:400px;"></div>
+    </div>
+  </div>
+@section Scripts{
+    <script src="~/lib/echarts/dist/echarts.js"></script>
+    <script>
+        var chartLeft = echarts.init(document.getElementById('left'));
+
+        // 指定图表的配置项和数据
+        var optionLeft = {
+            title: {
+                text: '各科室医生数量'
+            },
+            series : [
+                {
+                    name: '医生数量',
+                    type: 'pie',
+                    radius: '55%',
+                    data:@Html.Raw(Json.Serialize(ViewData["countPerDep"]))
+                }
+            ],
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c} ({d}%)'
+            },
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        chartLeft.setOption(optionLeft);
+
+        var chartRight = echarts.init(document.getElementById('right'));
+
+        // 指定图表的配置项和数据
+        optionRight = {
+            title: {
+                text: '患者年龄分布'
+            },
+            tooltip: {},
+            legend: {
+                data:['人数']
+            },
+            xAxis: {
+                data: ["0～20","20～40","40～60","60～80","80以上"]
+            },
+            yAxis: {},
+            series: [{
+                name: '人数',
+                type: 'bar',
+                barWidth: 25,
+                data: @Html.Raw(Json.Serialize(ViewData["PersonsPerAge"]))
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        chartRight.setOption(optionRight);
+    </script>
+}
